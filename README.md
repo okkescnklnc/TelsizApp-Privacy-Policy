@@ -1,0 +1,1 @@
+# TelsizApp-Privacy-Policy
