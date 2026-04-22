@@ -1,0 +1,169 @@
+import os
+
+# HTML içeriğini tanımlayalım
+html_content = """
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TelsizApp - Privacy Policy / Gizlilik Politikası</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #2c3e50;
+            --accent-color: #ff8c00; /* Belirlediğimiz turuncu */
+            --card-bg: #ffffff;
+            --border-color: #dcdde1;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #1a1a1a;
+                --text-color: #f5f6fa;
+                --card-bg: #2d2d2d;
+                --border-color: #404040;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--accent-color);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 5px;
+            font-size: 28px;
+        }
+
+        h2 {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+            margin-top: 30px;
+            font-size: 20px;
+            color: var(--accent-color);
+        }
+
+        .lang-section {
+            margin-bottom: 50px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        p, li {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        .highlight {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>TelsizApp</h1>
+        <p>Privacy Policy / Gizlilik Politikası</p>
+    </header>
+
+    <div class="lang-section">
+        <span class="badge">TR</span>
+        <h2>1. Uygulama Hakkında Bilgi</h2>
+        <p><strong>TelsizApp</strong>, Türkiye'deki Amatör Telsizcilik sınavlarına (KEGM tarafından düzenlenen A, B ve C sınıfı sınavlar) hazırlanan adaylar için geliştirilmiş modern bir eğitim asistanıdır. Uygulama, kullanıcıların güncel soru havuzuna erişmesini, deneme sınavları yapmasını ve sınav başarısını takip etmesini sağlar.</p>
+
+        <h2>2. Amaç ve Hedef Kitle</h2>
+        <ul>
+            <li><span class="highlight">Amaç:</span> Karmaşık teknik ve yasal konuları içeren amatör telsizcilik sınav sürecini, kullanıcı dostu bir arayüz ve akıllı çalışma algoritmalarıyla kolaylaştırmak.</li>
+            <li><span class="highlight">Hedef Kitle:</span> Amatör telsizcilik belgesi almak isteyen sınav adayları ve teknik bilgilerini tazelemek isteyen telsiz meraklıları.</li>
+        </ul>
+
+        <h2>3. Gizlilik ve Veri Koruma (Sıfır Veri Politikası)</h2>
+        <p>TelsizApp, kullanıcı gizliliğini en üst düzeyde tutar:</p>
+        <ul>
+            <li><strong>Yerel Veri İşleme:</strong> Tüm sınav başarılarınız ve istatistikleriniz tamamen cihazınızın yerel hafızasında (Core Data) saklanır.</li>
+            <li><strong>Kişisel Veri Toplanmaz:</strong> Ad, e-posta veya konum gibi hiçbir kişisel veri toplanmaz ve uzak sunuculara aktarılmaz.</li>
+            <li><strong>Üçüncü Taraf Paylaşımı:</strong> Verileriniz asla reklam ağları veya üçüncü taraf kuruluşlarla paylaşılmaz.</li>
+            <li><strong>Çevrimdışı Kullanım:</strong> Uygulama, temel işlevlerini yerine getirmek için internet bağlantısına ihtiyaç duymaz.</li>
+        </ul>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid var(--border-color);">
+
+    <div class="lang-section" style="margin-top: 40px;">
+        <span class="badge">EN</span>
+        <h2>1. About the App</h2>
+        <p><strong>TelsizApp</strong> is a modern educational assistant developed for candidates preparing for Amateur Radio License exams (Class A, B, and C exams organized by KEGM in Turkey). The app allows users to access up-to-date question banks and track their progress.</p>
+
+        <h2>2. Purpose and Target Audience</h2>
+        <ul>
+            <li><span class="highlight">Purpose:</span> To simplify the amateur radio licensing process through a user-friendly interface and smart study algorithms.</li>
+            <li><span class="highlight">Target Audience:</span> Exam candidates aiming to obtain an amateur radio license and enthusiasts looking to refresh their knowledge.</li>
+        </ul>
+
+        <h2>3. Privacy and Data Protection (Zero-Data Policy)</h2>
+        <p>TelsizApp prioritizes user privacy:</p>
+        <ul>
+            <li><strong>Local Data Processing:</strong> All progress and statistics are stored entirely in your device's local memory (Core Data).</li>
+            <li><strong>No Personal Data Collection:</strong> No personal data such as name, email, or location is collected or transmitted to remote servers.</li>
+            <li><strong>Third-Party Sharing:</strong> Your data is never shared with third-party organizations or advertising networks.</li>
+            <li><strong>Offline Functionality:</strong> The app does not require an internet connection for its core functions.</li>
+        </ul>
+    </div>
+
+    <footer>
+        &copy; 2026 TelsizApp. All rights reserved.
+    </footer>
+</div>
+
+</body>
+</html>
+"""
+
+# Dosyayı kaydetme
+file_path = "TelsizApp_Privacy_Policy.html"
+with open(file_path, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print(f"Dosya başarıyla oluşturuldu: {file_path}")
